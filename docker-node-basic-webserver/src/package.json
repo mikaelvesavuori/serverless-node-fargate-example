@@ -1,0 +1,13 @@
+{
+	"name": "docker-node-basic-server",
+	"version": "1.0.0",
+	"description": "Node.js server on Docker",
+	"author": "Mikael Vesavuori",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"fastify": "^2.7.1"
+	}
+}

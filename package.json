@@ -1,0 +1,16 @@
+{
+	"name": "serverless-php-fargate-example",
+	"version": "1.0.0",
+	"description": "Example for running a Node application on Fargate, deployed with Serverless Framework",
+	"devDependencies": {
+		"serverless-fargate-plugin": "^1.0.10"
+	},
+	"dependencies": {
+		"serverless": "^1.50.0"
+	},
+	"scripts": {
+		"build": "chmod +x ./build-and-push-docker-image.sh && ./build-and-push-docker-image.sh",
+		"deploy": "npx sls deploy",
+		"start": "npm install && npm run build && npm run deploy"
+	}
+}

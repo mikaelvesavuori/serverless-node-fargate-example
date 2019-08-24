@@ -1,0 +1,39 @@
+service:
+  name: serverless-node-fargate-example
+plugins:
+  - serverless-fargate-plugin
+provider:
+  name: aws
+  profile: "default"
+  stage: ${opt:stage,'dev'}
+  region: us-east-1
+  logRetentionInDays: 7
+custom:
+  # Change these to your values!
+  ecrImagePath:
+    accountNumber: 123456789012
+    region: eu-north-1
+    imageName: node-basic-server
+    imageTag: latest
+  fargate:
+    vpc:
+      cidr: 10.0.0.0/16
+      subnets:
+        - 10.0.0.0/24
+        - 10.0.1.0/24
+    services:
+      - name: node-basic-webserver
+        cpu: 512
+        memory: 1024
+        port: 8080
+        healthCheckUri: /
+        healthCheckInterval: 6
+        image: "${self:custom.ecrImagePath.accountNumber}.dkr.ecr.${self:custom.ecrImagePath.region}.amazonaws.com/${self:custom.ecrImagePath.imageName}:${self:custom.ecrImagePath.imageTag}"
+        entryPoint:
+          - npm
+          - run
+          - start
+        environment:
+          PRODUCTION: true
+        protocols:
+          - protocol: HTTP

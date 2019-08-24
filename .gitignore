@@ -1,0 +1,113 @@
+### OS specific files ###
+
+# Mac OS
+/**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+### IDE & software specific ###
+
+# Vim
+*.sw[a-p]
+
+# VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+### App generated build folders ###
+
+.next
+
+
+### dotenv environment variables file(s) ###
+.env
+
+
+### NPM dependencies ###
+
+/**/node_modules
+
+
+### Log files ###
+
+logs
+/**/*.log
+
+
+### Graphic design files ###
+
+*.psd
+*.ai
+*.sketch
+
+
+### Compressed archives ###
+
+*.7zip
+*.rar
+*.zip
+
+
+### Runtime data ###
+
+pids
+*.pid
+*.seed
+*.pid.lock
+
+
+### Reports / Test tools specific ###
+
+*.report.html
+*.report.csv
+*.report.json
+lib-cov
+
+
+### Optional cache directory ###
+
+.npm
+.eslintcache
+.node_repl_history
+
+
+### Output of 'npm pack' ###
+
+*.tgz
+
+
+### Deployment specifics ###
+
+.firebase
+.serverless
+.webpack
