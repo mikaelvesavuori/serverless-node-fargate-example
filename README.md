@@ -4,7 +4,7 @@ This guide is a very slight, helpful repackaging of [Arik Liber's Medium article
 
 Overall, this repo depends on [Serverless Framework](https://www.serverless.com) and the plugin [serverless-fargate-plugin](https://www.npmjs.com/package/serverless-fargate-plugin), whose base configuration is what's used here.
 
-For the application, we first need a small application that listens to requests. A tiny app using Fastify as a server is provided. Then that app needs to be packaged into a container registry. Such a Dockerfile is also provided. For this example we will put the image on AWS Elastic Container Registry.
+For the application, we first need a small application that listens to requests. A tiny app using Fastify as a server is provided. Then that app needs to be packaged into a container image, and put on a container registry. Such a Dockerfile is also provided. For this example we will put the image on AWS Elastic Container Registry.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ For the application, we first need a small application that listens to requests.
 1. Edit the placeholders in `build-and-push-docker-image.sh` to correspond with your settings
 2. Edit the placeholders in `serverless.yml` to correspond with your settings
 3. If you have a container image: Run `npm run start` or `yarn start` to both build, push, and deploy (deployment requires that you provide the full path to the container image)
-4. If you don't already have a container image: Run `npm run build` or `yarn build`, go to ECR (web GUI or CLI) and create a new repository, use the image URI in `serverless.yml` to specify image location; then deploy with `npm run deploy` or `yarn deploy`
+4. If you don't already have a container image: Run `npm run build` or `yarn build`; go to ECR (web GUI or CLI) and create a new repository; grab the image URI; use the image URI in `serverless.yml` to specify image location; then deploy with `npm run deploy` or `yarn deploy`
 5. If all goes well and you've deployed with Serverless Framework you can follow the steps under "Setup up Fargate, method 1: Use Serverless Framework" to see how to get your URL
 
 ## Detailed instructions
@@ -27,7 +27,7 @@ Steps that will be done:
 1. You will need to have a Docker image of your own (or know the ARN of one); a tiny Node application is provided in this repo so you can build one of your own
 2. You need to get Fargate up and running with that image, either manually or with the help of Serverless Framework
 
-### Build and push the image to a container repository (Example: AWS Elastic Container Registry)
+### Build and push the image to a container registry (Example: AWS Elastic Container Registry)
 
 We will run the default ECR steps to login and push. Of course all of this works with Dockerhub or something similar as well, but I'm sticking to the AWS specific services for this context.
 
