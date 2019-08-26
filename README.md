@@ -54,3 +54,5 @@ Something that should be obvious, but probably is not, is that regular ECS (base
 For now, I will simply point you (again) to the excellent article by [Arik Liber on Medium](https://medium.com/@ariklevliber/aws-fargate-from-start-to-finish-for-a-nodejs-app-9a0e5fbf6361). This is definitely clear enough to give you the steps, with images and all.
 
 NOTE: Based on my Docker image and current config, I needed to add `:8080` to the URL when doing everything the vanilla way and without the load balancer. This is not ideal and would require some change that I've been too lazy to fix yet. Try both with and without the `:8080` added after the URL.
+
+![Live Node webserver on Fargate](live-hello-world.png)
