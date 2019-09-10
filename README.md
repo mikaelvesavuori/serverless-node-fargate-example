@@ -31,7 +31,7 @@ Steps that will be done:
 
 We will run the default ECR steps to login and push. Of course all of this works with Dockerhub or something similar as well, but I'm sticking to the AWS specific services for this context.
 
-- `\$(aws ecr get-login --no-include-email --region {REGION})`
+- `$(aws ecr get-login --no-include-email --region {REGION})`
 - `docker build -t {PROJECT_NAME} .`
 - `docker tag {PROJECT_NAME}:latest {ACCOUNT_NUMBER}.dkr.ecr.{REGION}.amazonaws.com/{PROJECT_NAME}:latest`
 - `docker push {ACCOUNT_NUMBER}.dkr.ecr.{REGION}.amazonaws.com/{PROJECT_NAME}:latest`
@@ -40,9 +40,10 @@ An included shell script (`build-and-push-docker-image.sh`) runs those commands 
 
 ### Setup up Fargate, method 1: Use Serverless Framework
 
+- Edit `build-and-push-docker-image.sh` to contain your configuration (account number, region etc.)
 - Deploy by running `yarn deploy` or `npm run deploy`; this will take a few minutes
-- When it's done, go to https://us-east-1.console.aws.amazon.com/ec2/v2/
-- Click "Load Balancers" under the "LOAD BALANCING" category
+- When it's done, go to https://us-east-1.console.aws.amazon.com/ec2/v2/ (note: this path obviously assumes `us-east-1` region)
+- Under the "LOAD BALANCING" category, click "Load Balancers"
 - There should be a load balancer up, click on it
 - In the bottom panel, under "Basic configuration" there should be a DNS name, such as `serve-ECSLo-1HXFYPJLNQHP7-794422707.us-east-1.elb.amazonaws.com` – that's your URL!
 - Visit the URL and it should show 'Hello world'
