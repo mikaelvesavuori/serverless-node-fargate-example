@@ -1,16 +1,20 @@
 {
-	"name": "serverless-node-fargate-example",
-	"version": "1.0.0",
-	"description": "Example for running a Node application on Fargate, deployed with Serverless Framework",
-	"devDependencies": {
-		"serverless-fargate-plugin": "^1.0.10"
-	},
-	"dependencies": {
-		"serverless": "^1.51.0"
-	},
-	"scripts": {
-		"build": "chmod +x ./build-and-push-docker-image.sh && ./build-and-push-docker-image.sh",
-		"deploy": "npx sls deploy",
-		"start": "npm install && npm run build && npm run deploy"
-	}
+  "name": "serverless-node-fargate-example",
+  "version": "1.0.0",
+  "description": "Example for running a Node application on Fargate, deployed with Serverless Framework",
+  "devDependencies": {
+    "serverless-fargate-plugin": "^1.0.10"
+  },
+  "dependencies": {
+    "serverless": "^1.51.0",
+    "snyk": "^1.305.1"
+  },
+  "scripts": {
+    "build": "chmod +x ./build-and-push-docker-image.sh && ./build-and-push-docker-image.sh",
+    "deploy": "npx sls deploy",
+    "start": "npm install && npm run build && npm run deploy",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
