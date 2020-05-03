@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "serverless": "^1.51.0",
-    "snyk": "^1.305.1"
+    "snyk": "^1.317.0"
   },
   "scripts": {
     "build": "chmod +x ./build-and-push-docker-image.sh && ./build-and-push-docker-image.sh",
